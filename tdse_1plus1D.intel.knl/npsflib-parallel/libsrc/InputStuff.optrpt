@@ -1,0 +1,292 @@
+Intel(R) Advisor can now assist with vectorization and show optimization
+  report messages with your source code.
+See "https://software.intel.com/en-us/intel-advisor-xe" for details.
+
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINING OPTION VALUES:
+  -inline-factor: 100
+  -inline-min-size: 30
+  -inline-max-size: 230
+  -inline-max-total-size: 2000
+  -inline-max-per-routine: 10000
+  -inline-max-per-compile: 500000
+
+
+Begin optimization report for: create_dir(std::string *, std::string *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (create_dir(std::string *, std::string *)) InputStuff.cpp(13,48)
+
+===========================================================================
+
+Begin optimization report for: touchdir(std::string *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (touchdir(std::string *)) [4] InputStuff.cpp(78,32)
+  -> INLINE: (92,3) stat(const char *, stat *)
+     {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+  -> INLINE: (92,13) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::c_str(const std::basic_string<char, std::char_traits<char>, std::allocator<char>> *) const
+     {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+  -> INLINE: (97,18) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::c_str(const std::basic_string<char, std::char_traits<char>, std::allocator<char>> *) const
+     {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+  -> (99,9) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *)
+  -> (99,19) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *)
+  -> (99,34) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *)
+  -> (99,60) std::operator<<<char, std::char_traits<char>, std::allocator<char>>(std::basic_ostream<char, std::char_traits<char>> &, const std::basic_string<char, std::char_traits<char>, std::allocator<char>> &)
+  -> (99,66) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *)
+  -> (99,72) std::basic_ostream<char, std::char_traits<char>>::operator<<(std::basic_ostream<char, std::char_traits<char>> *, std::basic_ostream<char, std::char_traits<char>>::__ostream_type &(*)(std::basic_ostream<char, std::char_traits<char>>::__ostream_type &))
+  -> (102,9) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *)
+  -> (102,19) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *)
+  -> (102,34) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *)
+  -> (102,40) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *)
+  -> (102,57) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *)
+  -> (102,97) std::operator<<<char, std::char_traits<char>, std::allocator<char>>(std::basic_ostream<char, std::char_traits<char>> &, const std::basic_string<char, std::char_traits<char>, std::allocator<char>> &)
+  -> (102,104) std::basic_ostream<char, std::char_traits<char>>::operator<<(std::basic_ostream<char, std::char_traits<char>> *, std::basic_ostream<char, std::char_traits<char>>::__ostream_type &(*)(std::basic_ostream<char, std::char_traits<char>>::__ostream_type &))
+
+===========================================================================
+
+Begin optimization report for: parseInput(int, char **)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (parseInput(int, char **)) [5] InputStuff.cpp(108,40)
+  -> DELETED: (109,10) std::allocator<char>::~allocator(std::allocator<char> *)
+  -> INLINE: (109,18) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *)
+     {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+  -> DELETED: (109,18) std::allocator<char>::~allocator(std::allocator<char> *)
+  -> DELETED: (109,18) std::allocator<char>::allocator(std::allocator<char> *)
+  -> INLINE: (111,12) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::operator=(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *, const char *)
+     {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+  -> (113,9) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *)
+  -> (113,20) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *)
+  -> (113,29) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *)
+  -> (113,44) std::basic_ostream<char, std::char_traits<char>>::operator<<(std::basic_ostream<char, std::char_traits<char>> *, std::basic_ostream<char, std::char_traits<char>>::__ostream_type &(*)(std::basic_ostream<char, std::char_traits<char>>::__ostream_type &))
+  -> (114,9) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *)
+  -> (114,29) std::operator<<<char, std::char_traits<char>, std::allocator<char>>(std::basic_ostream<char, std::char_traits<char>> &, const std::basic_string<char, std::char_traits<char>, std::allocator<char>> &)
+  -> (114,38) std::basic_ostream<char, std::char_traits<char>>::operator<<(std::basic_ostream<char, std::char_traits<char>> *, std::basic_ostream<char, std::char_traits<char>>::__ostream_type &(*)(std::basic_ostream<char, std::char_traits<char>>::__ostream_type &))
+  -> DELETED: (118,7) std::allocator<char>::~allocator(std::allocator<char> *)
+  -> INLINE: (118,7) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *)
+     {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+  -> INLINE: (118,21) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::c_str(const std::basic_string<char, std::char_traits<char>, std::allocator<char>> *) const
+     {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+  -> DELETED: (118,21) std::allocator<char>::allocator(std::allocator<char> *)
+  -> INLINE: (118,21) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *)
+     {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+  -> DELETED: (118,21) std::allocator<char>::~allocator(std::allocator<char> *)
+  -> INLINE: (128,10) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *)
+     {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+  -> DELETED: (128,10) std::allocator<char>::~allocator(std::allocator<char> *)
+  -> INDIRECT-: (128,26) 
+  -> INLINE: (128,26) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *)
+     {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+  -> DELETED: (128,27) std::allocator<char>::~allocator(std::allocator<char> *)
+  -> INLINE: (128,27) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *)
+     {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+  -> DELETED: (128,27) std::allocator<char>::allocator(std::allocator<char> *)
+  -> INLINE: (129,16) Parameter<std::string>::set(Parameter<std::string> *, std::string *)
+    -> INLINE: ../include/ParameterMap.h:(284,28) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::operator=(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *, const std::basic_string<char, std::char_traits<char>, std::allocator<char>> &)
+       {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+  -> INLINE: (129,16) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *)
+     {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+  -> INLINE: (129,16) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *)
+     {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+  -> INLINE: (129,16) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *)
+     {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+  -> INLINE: (129,20) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *)
+     {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+  -> INLINE: (129,20) create_dir(std::string *, std::string *)
+    -> INLINE: (40,16) std::operator|(std::_Ios_Openmode, std::_Ios_Openmode)
+    -> INLINE: (40,16) std::basic_stringstream<char, std::char_traits<char>, std::allocator<char>>::basic_stringstream(std::basic_stringstream<char, std::char_traits<char>, std::allocator<char>> *const, std::ios_base::openmode)
+       {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+    -> (40,16) std::basic_stringstream<char, std::char_traits<char>, std::allocator<char>>::~basic_stringstream(std::basic_stringstream<char, std::char_traits<char>, std::allocator<char>> *const)
+    -> INLINE: (42,7) std::basic_stringstream<char, std::char_traits<char>, std::allocator<char>>::str(std::basic_stringstream<char, std::char_traits<char>, std::allocator<char>> *, const std::basic_stringstream<char, std::char_traits<char>, std::allocator<char>>::__string_type &)
+       {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+    -> INLINE: (42,7) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *)
+       {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+    -> DELETED: (42,7) std::allocator<char>::~allocator(std::allocator<char> *)
+    -> DELETED: (42,11) std::allocator<char>::allocator(std::allocator<char> *)
+    -> DELETED: (42,11) std::allocator<char>::~allocator(std::allocator<char> *)
+    -> INLINE: (42,11) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *)
+       {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+    -> (43,6) std::operator<<<char, std::char_traits<char>, std::allocator<char>>(std::basic_ostream<char, std::char_traits<char>> &, const std::basic_string<char, std::char_traits<char>, std::allocator<char>> &)
+    -> INLINE: (47,19) std::basic_stringstream<char, std::char_traits<char>, std::allocator<char>>::str(std::basic_stringstream<char, std::char_traits<char>, std::allocator<char>>::__string_type *, const std::basic_stringstream<char, std::char_traits<char>, std::allocator<char>> *) const
+       {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+    -> INLINE: (47,19) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *)
+       {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+    -> INLINE: (47,25) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::c_str(const std::basic_string<char, std::char_traits<char>, std::allocator<char>> *) const
+       {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+    -> INLINE: (47,75) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *)
+       {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+    -> (61,11) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *)
+    -> (61,21) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *)
+    -> (61,36) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *)
+    -> (61,62) std::operator<<<char, std::char_traits<char>, std::allocator<char>>(std::basic_ostream<char, std::char_traits<char>> &, const std::basic_string<char, std::char_traits<char>, std::allocator<char>> &)
+    -> INLINE: (61,68) std::basic_stringstream<char, std::char_traits<char>, std::allocator<char>>::str(std::basic_stringstream<char, std::char_traits<char>, std::allocator<char>>::__string_type *, const std::basic_stringstream<char, std::char_traits<char>, std::allocator<char>> *) const
+       {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+    -> INLINE: (61,68) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *)
+       {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+    -> (61,73) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *)
+    -> INLINE: (61,79) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *)
+       {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+    -> (61,79) std::basic_ostream<char, std::char_traits<char>>::operator<<(std::basic_ostream<char, std::char_traits<char>> *, std::basic_ostream<char, std::char_traits<char>>::__ostream_type &(*)(std::basic_ostream<char, std::char_traits<char>>::__ostream_type &))
+    -> INLINE: (63,7) std::basic_stringstream<char, std::char_traits<char>, std::allocator<char>>::~basic_stringstream(std::basic_stringstream<char, std::char_traits<char>, std::allocator<char>> *const)
+       {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+    -> INLINE: (63,18) std::basic_stringstream<char, std::char_traits<char>, std::allocator<char>>::str(std::basic_stringstream<char, std::char_traits<char>, std::allocator<char>>::__string_type *, const std::basic_stringstream<char, std::char_traits<char>, std::allocator<char>> *) const
+       {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+    -> INLINE: (67,9) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *)
+       {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+    -> INLINE: (67,9) std::basic_stringstream<char, std::char_traits<char>, std::allocator<char>>::str(std::basic_stringstream<char, std::char_traits<char>, std::allocator<char>> *, const std::basic_stringstream<char, std::char_traits<char>, std::allocator<char>>::__string_type &)
+       {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+    -> DELETED: (67,9) std::allocator<char>::~allocator(std::allocator<char> *)
+    -> DELETED: (67,13) std::allocator<char>::~allocator(std::allocator<char> *)
+    -> INLINE: (67,13) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *)
+       {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+    -> DELETED: (67,13) std::allocator<char>::allocator(std::allocator<char> *)
+    -> (69,8) std::operator<<<char, std::char_traits<char>, std::allocator<char>>(std::basic_ostream<char, std::char_traits<char>> &, const std::basic_string<char, std::char_traits<char>, std::allocator<char>> &)
+    -> (69,14) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *)
+    -> (72,7) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *)
+    -> (72,17) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *)
+    -> (72,32) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *)
+    -> (72,38) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *)
+    -> (72,55) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *)
+    -> (72,95) std::operator<<<char, std::char_traits<char>, std::allocator<char>>(std::basic_ostream<char, std::char_traits<char>> &, const std::basic_string<char, std::char_traits<char>, std::allocator<char>> &)
+    -> (72,102) std::basic_ostream<char, std::char_traits<char>>::operator<<(std::basic_ostream<char, std::char_traits<char>> *, std::basic_ostream<char, std::char_traits<char>>::__ostream_type &(*)(std::basic_ostream<char, std::char_traits<char>>::__ostream_type &))
+    -> (73,7) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *)
+    -> (73,15) std::basic_ostream<char, std::char_traits<char>>::operator<<(std::basic_ostream<char, std::char_traits<char>> *, std::basic_ostream<char, std::char_traits<char>>::__ostream_type &(*)(std::basic_ostream<char, std::char_traits<char>>::__ostream_type &))
+  -> INLINE: (129,32) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *)
+     {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+  -> INLINE: (129,37) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *)
+     {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+  -> INLINE: (129,37) std::operator+<char, std::char_traits<char>, std::allocator<char>>(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *, const std::basic_string<char, std::char_traits<char>, std::allocator<char>> &, const char *)
+     {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+  -> (132,7) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *)
+  -> INLINE: (132,31) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *)
+     {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+  -> (132,31) std::basic_ostream<char, std::char_traits<char>>::operator<<(std::basic_ostream<char, std::char_traits<char>> *, std::basic_ostream<char, std::char_traits<char>>::__ostream_type &(*)(std::basic_ostream<char, std::char_traits<char>>::__ostream_type &))
+  -> INLINE: (132,31) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *)
+     {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at InputStuff.cpp(45,3) inlined into InputStuff.cpp(129,20)
+   remark #15521: loop was not vectorized: loop control variable was not identified. Explicitly compute the iteration count before executing the loop or try using canonical loop form
+LOOP END
+
+    Report from: Code generation optimizations [cg]
+
+/usr/include/c++/4.4.7/bits/char_traits.h(275,40):remark #34026: call to memcpy implemented as a call to optimized library version
+/usr/include/c++/4.4.7/bits/char_traits.h(275,40):remark #34026: call to memcpy implemented as a call to optimized library version
+/usr/include/c++/4.4.7/bits/char_traits.h(275,40):remark #34026: call to memcpy implemented as a call to optimized library version
+/usr/include/c++/4.4.7/bits/char_traits.h(275,40):remark #34026: call to memcpy implemented as a call to optimized library version
+/usr/include/c++/4.4.7/bits/char_traits.h(275,40):remark #34026: call to memcpy implemented as a call to optimized library version
+/usr/include/c++/4.4.7/bits/char_traits.h(275,40):remark #34026: call to memcpy implemented as a call to optimized library version
+===========================================================================
+
+Begin optimization report for: ConfigFileParser::~ConfigFileParser(ConfigFileParser *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (ConfigFileParser::~ConfigFileParser(ConfigFileParser *)) [22] ../include/ConfigFileParser.h(87,25)
+  -> INLINE: (87,25) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *)
+     {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+  -> INLINE: (87,25) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *)
+     {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+  -> INLINE: (87,25) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *)
+     {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+  -> INLINE: (87,26) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *)
+     {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+  -> INLINE: (87,26) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *)
+     {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+  -> INLINE: (87,26) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *)
+     {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+  -> INLINE: (87,26) std::map<std::string, std::string, std::less<std::string>, std::allocator<std::pair<const std::string, std::string>>>::~map(std::map<std::string, std::string, std::less<std::string>, std::allocator<std::pair<const std::string, std::string>>> *)
+     {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at /usr/include/c++/4.4.7/bits/stl_tree.h(968,7) inlined into ../include/ConfigFileParser.h(88,26)
+   remark #15521: loop was not vectorized: loop control variable was not identified. Explicitly compute the iteration count before executing the loop or try using canonical loop form
+LOOP END
+===========================================================================
+
+Begin optimization report for: std::_Rb_tree<std::map<std::string, std::string, std::less<std::string>, std::allocator<std::pair<const std::string, std::string>>>::key_type, std::map<std::string, std::string, std::less<std::string>, std::allocator<std::pair<const std::string, std::string>>>::value_type, std::_Select1st<std::map<std::string, std::string, std::less<std::string>, std::allocator<std::pair<const std::string, std::string>>>::value_type>, std::map<std::string, std::string, std::less<std::string>, std::allocator<std::pair<const std::string, std::string>>>::key_compare, std::map<std::string, std::string, std::less<std::string>, std::allocator<std::pair<const std::string, std::string>>>::_Pair_alloc_type>::_M_erase(std::_Rb_tree<std::map<std::string, std::string, std::less<std::string>, std::allocator<std::pair<const std::string, std::string>>>::key_type, std::map<std::string, std::string, std::less<std::string>, std::allocator<std::pair<const std::string, std::string>>>::value_type, std::_Select1st<std::map<std::string, std::string, std::less<std::string>, std::allocator<std::pair<const std::string, std::string>>>::value_type>, std::map<std::string, std::string, std::less<std::string>, std::allocator<std::pair<const std::string, std::string>>>::key_compare, std::map<std::string, std::string, std::less<std::string>, std::allocator<std::pair<const std::string, std::string>>>::_Pair_alloc_type> *, std::_Rb_tree<std::map<std::string, std::string, std::less<std::string>, std::allocator<std::pair<const std::string, std::string>>>::key_type, std::map<std::string, std::string, std::less<std::string>, std::allocator<std::pair<const std::string, std::string>>>::value_type, std::_Select1st<std::map<std::string, std::string, std::less<std::string>, std::allocator<std::pair<const std::string, std::string>>>::value_type>, std::map<std::string, std::string, std::less<std::string>, std::allocator<std::pair<const std::string, std::string>>>::key_compare, std::map<std::string, std::string, std::less<std::string>, std::allocator<std::pair<const std::string, std::string>>>::_Pair_alloc_type>::_Link_type)
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at /usr/include/c++/4.4.7/bits/stl_tree.h(968,7)
+   remark #15521: loop was not vectorized: loop control variable was not identified. Explicitly compute the iteration count before executing the loop or try using canonical loop form
+LOOP END
+===========================================================================
+
+Begin optimization report for: Parameter<std::string>::set(Parameter<std::string> *, std::string *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (Parameter<std::string>::set(Parameter<std::string> *, std::string *)) ../include/ParameterMap.h(284,21)
+
+===========================================================================
+
+Begin optimization report for: __sti__$E()
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (__sti__$E()) [123] <compiler generated>
+  -> INLINE: /usr/include/c++/4.4.7/iostream:(72,25) __sti__cfg()
+    -> INLINE: InputStuff.cpp:(9,18) ConfigFileParser::ConfigFileParser(ConfigFileParser *)
+      -> INLINE: ../include/ConfigFileParser.h:(83,5) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *)
+         {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+      -> DELETED: ../include/ConfigFileParser.h:(83,5) std::allocator<char>::~allocator(std::allocator<char> *)
+      -> INLINE: ../include/ConfigFileParser.h:(83,5) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *)
+         {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+      -> INLINE: ../include/ConfigFileParser.h:(83,5) std::map<std::string, std::string, std::less<std::string>, std::allocator<std::pair<const std::string, std::string>>>::map(std::map<std::string, std::string, std::less<std::string>, std::allocator<std::pair<const std::string, std::string>>> *)
+         {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+      -> DELETED: ../include/ConfigFileParser.h:(83,5) std::allocator<char>::~allocator(std::allocator<char> *)
+      -> DELETED: ../include/ConfigFileParser.h:(83,37) std::allocator<char>::allocator(std::allocator<char> *)
+      -> DELETED: ../include/ConfigFileParser.h:(83,37) std::allocator<char>::~allocator(std::allocator<char> *)
+      -> INLINE: ../include/ConfigFileParser.h:(83,37) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *)
+         {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+      -> INLINE: ../include/ConfigFileParser.h:(83,52) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *)
+         {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+      -> DELETED: ../include/ConfigFileParser.h:(83,52) std::allocator<char>::allocator(std::allocator<char> *)
+      -> DELETED: ../include/ConfigFileParser.h:(83,52) std::allocator<char>::~allocator(std::allocator<char> *)
+  -> INLINE: /usr/include/c++/4.4.7/iostream:(72,25) __sti__I()
+    -> INLINE: ../include/constant.h:(13,38) std::complex<double>::complex(std::complex<double> *, double, double)
+
+
+    Report from: Code generation optimizations [cg]
+
+/usr/include/c++/4.4.7/bits/stl_tree.h(432,4):remark #34000: call to memset implemented inline with stores with proven (alignment, offset): (64, 32)
+===========================================================================
+
+Begin optimization report for: __sti__I()
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (__sti__I()) <compiler generated>
+
+===========================================================================
+
+Begin optimization report for: __sti__cfg()
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (__sti__cfg()) <compiler generated>
+
+===========================================================================
+
+Begin optimization report for: ConfigFileParser::ConfigFileParser(ConfigFileParser *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (ConfigFileParser::ConfigFileParser(ConfigFileParser *)) ../include/ConfigFileParser.h(83,57)
+
+===========================================================================

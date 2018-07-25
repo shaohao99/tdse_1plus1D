@@ -1,0 +1,6 @@
+#!/bin/bash -l
+module purge
+#module load intel/2016
+#module load openmpi/1.10.1_intel2016
+module load gsl/1.16 fftw/3.3.4
+

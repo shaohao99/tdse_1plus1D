@@ -1,0 +1,797 @@
+Intel(R) Advisor can now assist with vectorization and show optimization
+  report messages with your source code.
+See "https://software.intel.com/en-us/intel-advisor-xe" for details.
+
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINING OPTION VALUES:
+  -inline-factor: 100
+  -inline-min-size: 30
+  -inline-max-size: 230
+  -inline-max-total-size: 2000
+  -inline-max-per-routine: 10000
+  -inline-max-per-compile: 500000
+
+
+Begin optimization report for: printParameterMap(std::ostream &, const ParameterMap &, std::string *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (printParameterMap(std::ostream &, const ParameterMap &, std::string *)) Parameter.cpp(17,90)
+
+===========================================================================
+
+Begin optimization report for: operator<<(std::ofstream &, const ParameterMap &)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (operator<<(std::ofstream &, const ParameterMap &)) [5] Parameter.cpp(39,66)
+  -> DELETED: (40,3) std::allocator<char>::~allocator(std::allocator<char> *)
+  -> INLINE: (40,3) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *)
+     {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+  -> INLINE: (40,3) printParameterMap(std::ostream &, const ParameterMap &, std::string *)
+    -> (19,6) std::operator<<<char, std::char_traits<char>, std::allocator<char>>(std::basic_ostream<char, std::char_traits<char>> &, const std::basic_string<char, std::char_traits<char>, std::allocator<char>> &)
+    -> (19,17) std::operator<<<char, std::char_traits<char>, std::allocator<char>>(std::basic_ostream<char, std::char_traits<char>> &, const std::basic_string<char, std::char_traits<char>, std::allocator<char>> &)
+    -> (19,31) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *)
+    -> (19,97) std::basic_ostream<char, std::char_traits<char>>::operator<<(std::basic_ostream<char, std::char_traits<char>> *, std::basic_ostream<char, std::char_traits<char>>::__ostream_type &(*)(std::basic_ostream<char, std::char_traits<char>>::__ostream_type &))
+    -> INLINE: (21,33) ParameterMap::begin(const ParameterMap *) const
+      -> INLINE: ../include/ParameterMap.h:(178,32) std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type>::_Rb_tree_const_iterator(std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type> *, const std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type>::iterator &)
+      -> INLINE: ../include/ParameterMap.h:(178,32) std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::begin(std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>> *)
+         {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+    -> INLINE: (21,47) std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type>::operator!=(const std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type> *, const std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type>::_Self &) const
+    -> INLINE: (21,47) std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type>::operator!=(const std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type> *, const std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type>::_Self &) const
+    -> INLINE: (21,50) ParameterMap::end(const ParameterMap *) const
+      -> INLINE: ../include/ParameterMap.h:(179,32) std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type>::_Rb_tree_const_iterator(std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type> *, const std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type>::iterator &)
+      -> INLINE: ../include/ParameterMap.h:(179,32) std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::end(std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>> *)
+         {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+    -> INLINE: (21,50) ParameterMap::end(const ParameterMap *) const
+      -> INLINE: ../include/ParameterMap.h:(179,32) std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type>::_Rb_tree_const_iterator(std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type> *, const std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type>::iterator &)
+      -> INLINE: ../include/ParameterMap.h:(179,32) std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::end(std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>> *)
+         {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+    -> INLINE: (21,61) std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type>::operator++(std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type> *, int)
+       {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+    -> INLINE: (22,29) std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type>::operator->(const std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type> *) const
+    -> (23,8) std::operator<<<char, std::char_traits<char>, std::allocator<char>>(std::basic_ostream<char, std::char_traits<char>> &, const std::basic_string<char, std::char_traits<char>, std::allocator<char>> &)
+    -> (23,19) std::operator<<<char, std::char_traits<char>, std::allocator<char>>(std::basic_ostream<char, std::char_traits<char>> &, const std::basic_string<char, std::char_traits<char>, std::allocator<char>> &)
+    -> INLINE: (23,24) std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type>::operator->(const std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type> *) const
+    -> (23,32) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *)
+    -> (23,39) std::operator<<<char, std::char_traits<char>, std::allocator<char>>(std::basic_ostream<char, std::char_traits<char>> &, const std::basic_string<char, std::char_traits<char>, std::allocator<char>> &)
+    -> (23,55) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *)
+    -> (23,62) std::basic_ostream<char, std::char_traits<char>>::operator<<(std::basic_ostream<char, std::char_traits<char>> *, std::ios_base &(*)(std::ios_base &))
+    -> (23,70) std::operator<<<char, std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, std::_Setw)
+    -> INLINE: (23,78) std::setw(int)
+    -> INLINE: (23,86) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *)
+       {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+    -> (23,86) std::operator<<<char, std::char_traits<char>, std::allocator<char>>(std::basic_ostream<char, std::char_traits<char>> &, const std::basic_string<char, std::char_traits<char>, std::allocator<char>> &)
+    -> INDIRECT-: (23,89) 
+    -> INLINE: (23,89) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *)
+       {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+    -> INLINE: (24,24) Parameter_ABC::getComment(std::string *, const Parameter_ABC *) const
+    -> INLINE: (24,24) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *)
+       {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+    -> INLINE: (25,17) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::size(const std::basic_string<char, std::char_traits<char>, std::allocator<char>> *) const
+       {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+    -> (26,10) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *)
+    -> (26,17) std::operator<<<char, std::char_traits<char>, std::allocator<char>>(std::basic_ostream<char, std::char_traits<char>> &, const std::basic_string<char, std::char_traits<char>, std::allocator<char>> &)
+    -> (26,31) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *)
+    -> (26,38) std::operator<<<char, std::char_traits<char>, std::allocator<char>>(std::basic_ostream<char, std::char_traits<char>> &, const std::basic_string<char, std::char_traits<char>, std::allocator<char>> &)
+    -> (27,8) std::basic_ostream<char, std::char_traits<char>>::operator<<(std::basic_ostream<char, std::char_traits<char>> *, std::basic_ostream<char, std::char_traits<char>>::__ostream_type &(*)(std::basic_ostream<char, std::char_traits<char>>::__ostream_type &))
+    -> INLINE: (29,3) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *)
+       {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+    -> (30,6) std::operator<<<char, std::char_traits<char>, std::allocator<char>>(std::basic_ostream<char, std::char_traits<char>> &, const std::basic_string<char, std::char_traits<char>, std::allocator<char>> &)
+    -> (30,17) std::operator<<<char, std::char_traits<char>, std::allocator<char>>(std::basic_ostream<char, std::char_traits<char>> &, const std::basic_string<char, std::char_traits<char>, std::allocator<char>> &)
+    -> (30,31) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *)
+    -> (30,97) std::basic_ostream<char, std::char_traits<char>>::operator<<(std::basic_ostream<char, std::char_traits<char>> *, std::basic_ostream<char, std::char_traits<char>>::__ostream_type &(*)(std::basic_ostream<char, std::char_traits<char>>::__ostream_type &))
+  -> INLINE: (40,28) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *)
+     {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+  -> DELETED: (40,28) std::allocator<char>::~allocator(std::allocator<char> *)
+  -> DELETED: (40,28) std::allocator<char>::allocator(std::allocator<char> *)
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at Parameter.cpp(21,47) inlined into Parameter.cpp(40,3)
+   remark #15521: loop was not vectorized: loop control variable was not identified. Explicitly compute the iteration count before executing the loop or try using canonical loop form
+LOOP END
+===========================================================================
+
+Begin optimization report for: operator<<(std::ostream &, const ParameterMap &)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (operator<<(std::ostream &, const ParameterMap &)) [17] Parameter.cpp(48,64)
+  -> DELETED: (49,3) std::allocator<char>::~allocator(std::allocator<char> *)
+  -> INLINE: (49,3) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *)
+     {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+  -> INLINE: (49,3) printParameterMap(std::ostream &, const ParameterMap &, std::string *)
+    -> (19,6) std::operator<<<char, std::char_traits<char>, std::allocator<char>>(std::basic_ostream<char, std::char_traits<char>> &, const std::basic_string<char, std::char_traits<char>, std::allocator<char>> &)
+    -> (19,17) std::operator<<<char, std::char_traits<char>, std::allocator<char>>(std::basic_ostream<char, std::char_traits<char>> &, const std::basic_string<char, std::char_traits<char>, std::allocator<char>> &)
+    -> (19,31) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *)
+    -> (19,97) std::basic_ostream<char, std::char_traits<char>>::operator<<(std::basic_ostream<char, std::char_traits<char>> *, std::basic_ostream<char, std::char_traits<char>>::__ostream_type &(*)(std::basic_ostream<char, std::char_traits<char>>::__ostream_type &))
+    -> INLINE: (21,33) ParameterMap::begin(const ParameterMap *) const
+      -> INLINE: ../include/ParameterMap.h:(178,32) std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type>::_Rb_tree_const_iterator(std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type> *, const std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type>::iterator &)
+      -> INLINE: ../include/ParameterMap.h:(178,32) std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::begin(std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>> *)
+         {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+    -> INLINE: (21,47) std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type>::operator!=(const std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type> *, const std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type>::_Self &) const
+    -> INLINE: (21,47) std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type>::operator!=(const std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type> *, const std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type>::_Self &) const
+    -> INLINE: (21,50) ParameterMap::end(const ParameterMap *) const
+      -> INLINE: ../include/ParameterMap.h:(179,32) std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type>::_Rb_tree_const_iterator(std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type> *, const std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type>::iterator &)
+      -> INLINE: ../include/ParameterMap.h:(179,32) std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::end(std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>> *)
+         {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+    -> INLINE: (21,50) ParameterMap::end(const ParameterMap *) const
+      -> INLINE: ../include/ParameterMap.h:(179,32) std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type>::_Rb_tree_const_iterator(std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type> *, const std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type>::iterator &)
+      -> INLINE: ../include/ParameterMap.h:(179,32) std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::end(std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>> *)
+         {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+    -> INLINE: (21,61) std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type>::operator++(std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type> *, int)
+       {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+    -> INLINE: (22,29) std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type>::operator->(const std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type> *) const
+    -> (23,8) std::operator<<<char, std::char_traits<char>, std::allocator<char>>(std::basic_ostream<char, std::char_traits<char>> &, const std::basic_string<char, std::char_traits<char>, std::allocator<char>> &)
+    -> (23,19) std::operator<<<char, std::char_traits<char>, std::allocator<char>>(std::basic_ostream<char, std::char_traits<char>> &, const std::basic_string<char, std::char_traits<char>, std::allocator<char>> &)
+    -> INLINE: (23,24) std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type>::operator->(const std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type> *) const
+    -> (23,32) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *)
+    -> (23,39) std::operator<<<char, std::char_traits<char>, std::allocator<char>>(std::basic_ostream<char, std::char_traits<char>> &, const std::basic_string<char, std::char_traits<char>, std::allocator<char>> &)
+    -> (23,55) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *)
+    -> (23,62) std::basic_ostream<char, std::char_traits<char>>::operator<<(std::basic_ostream<char, std::char_traits<char>> *, std::ios_base &(*)(std::ios_base &))
+    -> (23,70) std::operator<<<char, std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, std::_Setw)
+    -> INLINE: (23,78) std::setw(int)
+    -> INLINE: (23,86) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *)
+       {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+    -> (23,86) std::operator<<<char, std::char_traits<char>, std::allocator<char>>(std::basic_ostream<char, std::char_traits<char>> &, const std::basic_string<char, std::char_traits<char>, std::allocator<char>> &)
+    -> INDIRECT-: (23,89) 
+    -> INLINE: (23,89) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *)
+       {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+    -> INLINE: (24,24) Parameter_ABC::getComment(std::string *, const Parameter_ABC *) const
+    -> INLINE: (24,24) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *)
+       {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+    -> INLINE: (25,17) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::size(const std::basic_string<char, std::char_traits<char>, std::allocator<char>> *) const
+       {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+    -> (26,10) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *)
+    -> (26,17) std::operator<<<char, std::char_traits<char>, std::allocator<char>>(std::basic_ostream<char, std::char_traits<char>> &, const std::basic_string<char, std::char_traits<char>, std::allocator<char>> &)
+    -> (26,31) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *)
+    -> (26,38) std::operator<<<char, std::char_traits<char>, std::allocator<char>>(std::basic_ostream<char, std::char_traits<char>> &, const std::basic_string<char, std::char_traits<char>, std::allocator<char>> &)
+    -> (27,8) std::basic_ostream<char, std::char_traits<char>>::operator<<(std::basic_ostream<char, std::char_traits<char>> *, std::basic_ostream<char, std::char_traits<char>>::__ostream_type &(*)(std::basic_ostream<char, std::char_traits<char>>::__ostream_type &))
+    -> INLINE: (29,3) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *)
+       {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+    -> (30,6) std::operator<<<char, std::char_traits<char>, std::allocator<char>>(std::basic_ostream<char, std::char_traits<char>> &, const std::basic_string<char, std::char_traits<char>, std::allocator<char>> &)
+    -> (30,17) std::operator<<<char, std::char_traits<char>, std::allocator<char>>(std::basic_ostream<char, std::char_traits<char>> &, const std::basic_string<char, std::char_traits<char>, std::allocator<char>> &)
+    -> (30,31) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *)
+    -> (30,97) std::basic_ostream<char, std::char_traits<char>>::operator<<(std::basic_ostream<char, std::char_traits<char>> *, std::basic_ostream<char, std::char_traits<char>>::__ostream_type &(*)(std::basic_ostream<char, std::char_traits<char>>::__ostream_type &))
+  -> INLINE: (49,25) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *)
+     {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+  -> DELETED: (49,25) std::allocator<char>::~allocator(std::allocator<char> *)
+  -> DELETED: (49,25) std::allocator<char>::allocator(std::allocator<char> *)
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at Parameter.cpp(21,47) inlined into Parameter.cpp(49,3)
+   remark #15521: loop was not vectorized: loop control variable was not identified. Explicitly compute the iteration count before executing the loop or try using canonical loop form
+LOOP END
+===========================================================================
+
+Begin optimization report for: operator<<(std::ostream &, const Parameter_ABC &)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (operator<<(std::ostream &, const Parameter_ABC &)) [18] Parameter.cpp(56,61)
+  -> (58,13) std::operator<<<char, std::char_traits<char>, std::allocator<char>>(std::basic_ostream<char, std::char_traits<char>> &, const std::basic_string<char, std::char_traits<char>, std::allocator<char>> &)
+  -> INLINE: (58,19) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *)
+     {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+  -> INLINE: (58,19) Parameter_ABC::getLabel(std::string *, const Parameter_ABC *) const
+  -> (58,30) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *)
+  -> (58,39) std::operator<<<char, std::char_traits<char>, std::allocator<char>>(std::basic_ostream<char, std::char_traits<char>> &, const std::basic_string<char, std::char_traits<char>, std::allocator<char>> &)
+  -> INLINE: (58,42) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *)
+     {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+  -> INDIRECT-: (58,42) 
+  -> (58,62) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *)
+  -> INLINE: (58,74) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *)
+     {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+  -> (58,74) std::operator<<<char, std::char_traits<char>, std::allocator<char>>(std::basic_ostream<char, std::char_traits<char>> &, const std::basic_string<char, std::char_traits<char>, std::allocator<char>> &)
+  -> INLINE: (58,74) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *)
+     {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+  -> INLINE: (58,74) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *)
+     {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+  -> INLINE: (58,80) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *)
+     {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+  -> INLINE: (58,80) Parameter_ABC::getComment(std::string *, const Parameter_ABC *) const
+
+===========================================================================
+
+Begin optimization report for: ParameterMap::operator[](ParameterMap *, const std::string &)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (ParameterMap::operator[](ParameterMap *, const std::string &)) [19] Parameter.cpp(104,61)
+  -> INLINE: (105,18) ParameterMap::find(ParameterMap *, const std::string &)
+    -> INLINE: ../include/ParameterMap.h:(176,58) std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::find(std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>> *, const std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type &)
+       {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+  -> INLINE: (106,10) ParameterMap::end(const ParameterMap *) const
+    -> INLINE: ../include/ParameterMap.h:(179,32) std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::end(std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>> *)
+       {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+    -> INLINE: ../include/ParameterMap.h:(179,32) std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type>::_Rb_tree_const_iterator(std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type> *, const std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type>::iterator &)
+  -> INLINE: (106,15) std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type>::operator==(const std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type> *, const std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type>::_Self &) const
+  -> INLINE: (106,17) std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type>::_Rb_tree_const_iterator(std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type> *, const std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type>::iterator &)
+  -> INLINE: (106,40) ParameterMap::KeyNotFound::KeyNotFound(ParameterMap::KeyNotFound *, const std::string &)
+    -> ../include/ParameterMap.h:(205,11) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *)
+    -> ../include/ParameterMap.h:(205,41) std::operator<<<char, std::char_traits<char>, std::allocator<char>>(std::basic_ostream<char, std::char_traits<char>> &, const std::basic_string<char, std::char_traits<char>, std::allocator<char>> &)
+    -> ../include/ParameterMap.h:(205,44) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *)
+    -> ../include/ParameterMap.h:(205,89) std::basic_ostream<char, std::char_traits<char>>::operator<<(std::basic_ostream<char, std::char_traits<char>> *, std::basic_ostream<char, std::char_traits<char>>::__ostream_type &(*)(std::basic_ostream<char, std::char_traits<char>>::__ostream_type &))
+  -> INLINE: (107,14) std::_Rb_tree_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type>::operator->(const std::_Rb_tree_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type> *) const
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at /usr/include/c++/4.4.7/bits/basic_string.h(278,17) inlined into Parameter.cpp(105,18)
+   remark #15521: loop was not vectorized: loop control variable was not identified. Explicitly compute the iteration count before executing the loop or try using canonical loop form
+LOOP END
+
+    Report from: Code generation optimizations [cg]
+
+/usr/include/c++/4.4.7/bits/char_traits.h(259,16):remark #34026: call to memcmp implemented as a call to optimized library version
+/usr/include/c++/4.4.7/bits/char_traits.h(259,16):remark #34026: call to memcmp implemented as a call to optimized library version
+===========================================================================
+
+Begin optimization report for: ParameterMap::find(ParameterMap *, const std::string &)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (ParameterMap::find(ParameterMap *, const std::string &)) ../include/ParameterMap.h(176,32)
+
+===========================================================================
+
+Begin optimization report for: ParameterMap::begin(const ParameterMap *) const
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (ParameterMap::begin(const ParameterMap *) const) ../include/ParameterMap.h(178,23)
+
+===========================================================================
+
+Begin optimization report for: ParameterMap::end(const ParameterMap *) const
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (ParameterMap::end(const ParameterMap *) const) ../include/ParameterMap.h(179,23)
+
+===========================================================================
+
+Begin optimization report for: ParameterMap::add(ParameterMap *, std::string &, Parameter_ABC *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (ParameterMap::add(ParameterMap *, std::string &, Parameter_ABC *)) ../include/ParameterMap.h(180,47)
+
+===========================================================================
+
+Begin optimization report for: ParameterMap::remove(ParameterMap *, std::string &)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (ParameterMap::remove(ParameterMap *, std::string &)) ../include/ParameterMap.h(189,30)
+
+===========================================================================
+
+Begin optimization report for: ParameterMap::saveToFile(ParameterMap *, const std::string &)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (ParameterMap::saveToFile(ParameterMap *, const std::string &)) [25] Parameter.cpp(73,1)
+  -> INLINE: (74,31) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::c_str(const std::basic_string<char, std::char_traits<char>, std::allocator<char>> *) const
+     {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+  -> (74,40) std::basic_ofstream<char, std::char_traits<char>>::~basic_ofstream(std::basic_ofstream<char, std::char_traits<char>> *const)
+  -> INLINE: (74,40) std::basic_ofstream<char, std::char_traits<char>>::basic_ofstream(std::basic_ofstream<char, std::char_traits<char>> *const, const char *, std::ios_base::openmode)
+     {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+  -> INLINE: (75,10) std::basic_ios<char, std::char_traits<char>>::operator!(const std::basic_ios<char, std::char_traits<char>> *) const
+     {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+  -> INLINE: (75,41) ParameterMap::FileNotCreated::FileNotCreated(ParameterMap::FileNotCreated *, const std::string &)
+  -> INLINE: (76,13) operator<<(std::ofstream &, const ParameterMap &)
+    -> INLINE: (40,3) printParameterMap(std::ostream &, const ParameterMap &, std::string *)
+      -> (19,6) std::operator<<<char, std::char_traits<char>, std::allocator<char>>(std::basic_ostream<char, std::char_traits<char>> &, const std::basic_string<char, std::char_traits<char>, std::allocator<char>> &)
+      -> (19,17) std::operator<<<char, std::char_traits<char>, std::allocator<char>>(std::basic_ostream<char, std::char_traits<char>> &, const std::basic_string<char, std::char_traits<char>, std::allocator<char>> &)
+      -> (19,31) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *)
+      -> (19,97) std::basic_ostream<char, std::char_traits<char>>::operator<<(std::basic_ostream<char, std::char_traits<char>> *, std::basic_ostream<char, std::char_traits<char>>::__ostream_type &(*)(std::basic_ostream<char, std::char_traits<char>>::__ostream_type &))
+      -> INLINE: (21,33) ParameterMap::begin(const ParameterMap *) const
+        -> INLINE: ../include/ParameterMap.h:(178,32) std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type>::_Rb_tree_const_iterator(std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type> *, const std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type>::iterator &)
+        -> INLINE: ../include/ParameterMap.h:(178,32) std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::begin(std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>> *)
+           {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+      -> INLINE: (21,47) std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type>::operator!=(const std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type> *, const std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type>::_Self &) const
+      -> INLINE: (21,47) std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type>::operator!=(const std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type> *, const std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type>::_Self &) const
+      -> INLINE: (21,50) ParameterMap::end(const ParameterMap *) const
+        -> INLINE: ../include/ParameterMap.h:(179,32) std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type>::_Rb_tree_const_iterator(std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type> *, const std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type>::iterator &)
+        -> INLINE: ../include/ParameterMap.h:(179,32) std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::end(std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>> *)
+           {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+      -> INLINE: (21,50) ParameterMap::end(const ParameterMap *) const
+        -> INLINE: ../include/ParameterMap.h:(179,32) std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type>::_Rb_tree_const_iterator(std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type> *, const std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type>::iterator &)
+        -> INLINE: ../include/ParameterMap.h:(179,32) std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::end(std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>> *)
+           {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+      -> INLINE: (21,61) std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type>::operator++(std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type> *, int)
+         {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+      -> INLINE: (22,29) std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type>::operator->(const std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type> *) const
+      -> (23,8) std::operator<<<char, std::char_traits<char>, std::allocator<char>>(std::basic_ostream<char, std::char_traits<char>> &, const std::basic_string<char, std::char_traits<char>, std::allocator<char>> &)
+      -> (23,19) std::operator<<<char, std::char_traits<char>, std::allocator<char>>(std::basic_ostream<char, std::char_traits<char>> &, const std::basic_string<char, std::char_traits<char>, std::allocator<char>> &)
+      -> INLINE: (23,24) std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type>::operator->(const std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type> *) const
+      -> (23,32) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *)
+      -> (23,39) std::operator<<<char, std::char_traits<char>, std::allocator<char>>(std::basic_ostream<char, std::char_traits<char>> &, const std::basic_string<char, std::char_traits<char>, std::allocator<char>> &)
+      -> (23,55) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *)
+      -> (23,62) std::basic_ostream<char, std::char_traits<char>>::operator<<(std::basic_ostream<char, std::char_traits<char>> *, std::ios_base &(*)(std::ios_base &))
+      -> (23,70) std::operator<<<char, std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, std::_Setw)
+      -> INLINE: (23,78) std::setw(int)
+      -> INLINE: (23,86) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *)
+         {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+      -> (23,86) std::operator<<<char, std::char_traits<char>, std::allocator<char>>(std::basic_ostream<char, std::char_traits<char>> &, const std::basic_string<char, std::char_traits<char>, std::allocator<char>> &)
+      -> INDIRECT-: (23,89) 
+      -> INLINE: (23,89) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *)
+         {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+      -> INLINE: (24,24) Parameter_ABC::getComment(std::string *, const Parameter_ABC *) const
+      -> INLINE: (24,24) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *)
+         {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+      -> INLINE: (25,17) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::size(const std::basic_string<char, std::char_traits<char>, std::allocator<char>> *) const
+         {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+      -> (26,10) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *)
+      -> (26,17) std::operator<<<char, std::char_traits<char>, std::allocator<char>>(std::basic_ostream<char, std::char_traits<char>> &, const std::basic_string<char, std::char_traits<char>, std::allocator<char>> &)
+      -> (26,31) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *)
+      -> (26,38) std::operator<<<char, std::char_traits<char>, std::allocator<char>>(std::basic_ostream<char, std::char_traits<char>> &, const std::basic_string<char, std::char_traits<char>, std::allocator<char>> &)
+      -> (27,8) std::basic_ostream<char, std::char_traits<char>>::operator<<(std::basic_ostream<char, std::char_traits<char>> *, std::basic_ostream<char, std::char_traits<char>>::__ostream_type &(*)(std::basic_ostream<char, std::char_traits<char>>::__ostream_type &))
+      -> INLINE: (29,3) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *)
+         {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+      -> (30,6) std::operator<<<char, std::char_traits<char>, std::allocator<char>>(std::basic_ostream<char, std::char_traits<char>> &, const std::basic_string<char, std::char_traits<char>, std::allocator<char>> &)
+      -> (30,17) std::operator<<<char, std::char_traits<char>, std::allocator<char>>(std::basic_ostream<char, std::char_traits<char>> &, const std::basic_string<char, std::char_traits<char>, std::allocator<char>> &)
+      -> (30,31) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *)
+      -> (30,97) std::basic_ostream<char, std::char_traits<char>>::operator<<(std::basic_ostream<char, std::char_traits<char>> *, std::basic_ostream<char, std::char_traits<char>>::__ostream_type &(*)(std::basic_ostream<char, std::char_traits<char>>::__ostream_type &))
+    -> INLINE: (40,3) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *)
+       {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+    -> DELETED: (40,3) std::allocator<char>::~allocator(std::allocator<char> *)
+    -> DELETED: (40,28) std::allocator<char>::allocator(std::allocator<char> *)
+    -> DELETED: (40,28) std::allocator<char>::~allocator(std::allocator<char> *)
+    -> INLINE: (40,28) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *)
+       {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+  -> INLINE: (77,13) std::basic_ofstream<char, std::char_traits<char>>::~basic_ofstream(std::basic_ofstream<char, std::char_traits<char>> *const)
+     {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+  -> INLINE: (77,13) std::basic_ofstream<char, std::char_traits<char>>::close(std::basic_ofstream<char, std::char_traits<char>> *)
+     {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at Parameter.cpp(21,47) inlined into Parameter.cpp(76,13)
+   remark #15521: loop was not vectorized: loop control variable was not identified. Explicitly compute the iteration count before executing the loop or try using canonical loop form
+LOOP END
+===========================================================================
+
+Begin optimization report for: ParameterMap::FileNotCreated::FileNotCreated(ParameterMap::FileNotCreated *, const std::string &)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (ParameterMap::FileNotCreated::FileNotCreated(ParameterMap::FileNotCreated *, const std::string &)) ../include/ParameterMap.h(200,57)
+
+===========================================================================
+
+Begin optimization report for: ParameterMap::FileNotCreated::~FileNotCreated(ParameterMap::FileNotCreated *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (ParameterMap::FileNotCreated::~FileNotCreated(ParameterMap::FileNotCreated *)) [31] ../include/ParameterMap.h(198,10)
+  -> INLINE: (198,10) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *)
+     {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+
+===========================================================================
+
+Begin optimization report for: ParameterMap::KeyNotFound::KeyNotFound(ParameterMap::KeyNotFound *, const std::string &)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (ParameterMap::KeyNotFound::KeyNotFound(ParameterMap::KeyNotFound *, const std::string &)) ../include/ParameterMap.h(204,40)
+
+===========================================================================
+
+Begin optimization report for: Parameter_ABC::Parameter_ABC(Parameter_ABC *, const std::type_info *, std::string *, std::string *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (Parameter_ABC::Parameter_ABC(Parameter_ABC *, const std::type_info *, std::string *, std::string *)) [33] Parameter.cpp(64,47)
+  -> INLINE: (64,8) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *)
+     {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+  -> INLINE: (64,25) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *)
+     {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+  -> INLINE: (65,8) ParameterMap::add(ParameterMap *, std::string &, Parameter_ABC *)
+    -> INLINE: ../include/ParameterMap.h:(181,22) std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::count(const std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>> *, const std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type &) const
+       {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+    -> ../include/ParameterMap.h:(182,11) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *)
+    -> ../include/ParameterMap.h:(182,45) std::operator<<<char, std::char_traits<char>, std::allocator<char>>(std::basic_ostream<char, std::char_traits<char>> &, const std::basic_string<char, std::char_traits<char>, std::allocator<char>> &)
+    -> ../include/ParameterMap.h:(182,52) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *)
+    -> ../include/ParameterMap.h:(182,73) std::basic_ostream<char, std::char_traits<char>>::operator<<(std::basic_ostream<char, std::char_traits<char>> *, std::basic_ostream<char, std::char_traits<char>>::__ostream_type &(*)(std::basic_ostream<char, std::char_traits<char>>::__ostream_type &))
+    -> INLINE: ../include/ParameterMap.h:(186,18) std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::operator[](std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>> *, const std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type &)
+       {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at /usr/include/c++/4.4.7/bits/basic_string.h(278,17) inlined into Parameter.cpp(65,8)
+   remark #15521: loop was not vectorized: loop control variable was not identified. Explicitly compute the iteration count before executing the loop or try using canonical loop form
+LOOP END
+
+LOOP BEGIN at /usr/include/c++/4.4.7/bits/basic_string.h(278,17) inlined into Parameter.cpp(65,8)
+   remark #15521: loop was not vectorized: loop control variable was not identified. Explicitly compute the iteration count before executing the loop or try using canonical loop form
+LOOP END
+
+    Report from: Code generation optimizations [cg]
+
+/usr/include/c++/4.4.7/bits/char_traits.h(259,16):remark #34026: call to memcmp implemented as a call to optimized library version
+/usr/include/c++/4.4.7/bits/char_traits.h(259,16):remark #34026: call to memcmp implemented as a call to optimized library version
+/usr/include/c++/4.4.7/bits/char_traits.h(259,16):remark #34026: call to memcmp implemented as a call to optimized library version
+/usr/include/c++/4.4.7/bits/char_traits.h(259,16):remark #34026: call to memcmp implemented as a call to optimized library version
+/usr/include/c++/4.4.7/bits/char_traits.h(259,16):remark #34026: call to memcmp implemented as a call to optimized library version
+/usr/include/c++/4.4.7/bits/char_traits.h(259,16):remark #34026: call to memcmp implemented as a call to optimized library version
+/usr/include/c++/4.4.7/bits/char_traits.h(259,16):remark #34026: call to memcmp implemented as a call to optimized library version
+/usr/include/c++/4.4.7/bits/char_traits.h(259,16):remark #34026: call to memcmp implemented as a call to optimized library version
+/usr/include/c++/4.4.7/bits/char_traits.h(259,16):remark #34026: call to memcmp implemented as a call to optimized library version
+/usr/include/c++/4.4.7/bits/char_traits.h(259,16):remark #34026: call to memcmp implemented as a call to optimized library version
+/usr/include/c++/4.4.7/bits/char_traits.h(259,16):remark #34026: call to memcmp implemented as a call to optimized library version
+/usr/include/c++/4.4.7/bits/char_traits.h(259,16):remark #34026: call to memcmp implemented as a call to optimized library version
+/usr/include/c++/4.4.7/bits/char_traits.h(259,16):remark #34026: call to memcmp implemented as a call to optimized library version
+/usr/include/c++/4.4.7/bits/char_traits.h(259,16):remark #34026: call to memcmp implemented as a call to optimized library version
+/usr/include/c++/4.4.7/bits/char_traits.h(259,16):remark #34026: call to memcmp implemented as a call to optimized library version
+/usr/include/c++/4.4.7/bits/char_traits.h(259,16):remark #34026: call to memcmp implemented as a call to optimized library version
+===========================================================================
+
+Begin optimization report for: std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::_M_insert_unique(std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type> *, const std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type &)
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at /usr/include/c++/4.4.7/bits/stl_tree.h(1167,7)
+   remark #15521: loop was not vectorized: loop control variable was not identified. Explicitly compute the iteration count before executing the loop or try using canonical loop form
+LOOP END
+
+    Report from: Code generation optimizations [cg]
+
+/usr/include/c++/4.4.7/bits/char_traits.h(259,16):remark #34026: call to memcmp implemented as a call to optimized library version
+/usr/include/c++/4.4.7/bits/char_traits.h(259,16):remark #34026: call to memcmp implemented as a call to optimized library version
+/usr/include/c++/4.4.7/bits/char_traits.h(259,16):remark #34026: call to memcmp implemented as a call to optimized library version
+/usr/include/c++/4.4.7/bits/char_traits.h(259,16):remark #34026: call to memcmp implemented as a call to optimized library version
+===========================================================================
+
+Begin optimization report for: Parameter_ABC::Parameter_ABC(Parameter_ABC *const, const std::type_info *, std::string *, std::string *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (Parameter_ABC::Parameter_ABC(Parameter_ABC *const, const std::type_info *, std::string *, std::string *)) [38] Parameter.cpp(63,16)
+  -> INLINE: (63,16) Parameter_ABC::Parameter_ABC(Parameter_ABC *, const std::type_info *, std::string *, std::string *)
+    -> INLINE: (64,8) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *)
+       {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+    -> INLINE: (64,25) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *)
+       {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+    -> INLINE: (65,8) ParameterMap::add(ParameterMap *, std::string &, Parameter_ABC *)
+      -> INLINE: ../include/ParameterMap.h:(181,22) std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::count(const std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>> *, const std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type &) const
+         {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+      -> ../include/ParameterMap.h:(182,11) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *)
+      -> ../include/ParameterMap.h:(182,45) std::operator<<<char, std::char_traits<char>, std::allocator<char>>(std::basic_ostream<char, std::char_traits<char>> &, const std::basic_string<char, std::char_traits<char>, std::allocator<char>> &)
+      -> ../include/ParameterMap.h:(182,52) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *)
+      -> ../include/ParameterMap.h:(182,73) std::basic_ostream<char, std::char_traits<char>>::operator<<(std::basic_ostream<char, std::char_traits<char>> *, std::basic_ostream<char, std::char_traits<char>>::__ostream_type &(*)(std::basic_ostream<char, std::char_traits<char>>::__ostream_type &))
+      -> INLINE: ../include/ParameterMap.h:(186,18) std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::operator[](std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>> *, const std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type &)
+         {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at /usr/include/c++/4.4.7/bits/basic_string.h(278,17) inlined into Parameter.cpp(63,16)
+   remark #15521: loop was not vectorized: loop control variable was not identified. Explicitly compute the iteration count before executing the loop or try using canonical loop form
+LOOP END
+
+LOOP BEGIN at /usr/include/c++/4.4.7/bits/basic_string.h(278,17) inlined into Parameter.cpp(63,16)
+   remark #15521: loop was not vectorized: loop control variable was not identified. Explicitly compute the iteration count before executing the loop or try using canonical loop form
+LOOP END
+
+    Report from: Code generation optimizations [cg]
+
+/usr/include/c++/4.4.7/bits/char_traits.h(259,16):remark #34026: call to memcmp implemented as a call to optimized library version
+/usr/include/c++/4.4.7/bits/char_traits.h(259,16):remark #34026: call to memcmp implemented as a call to optimized library version
+/usr/include/c++/4.4.7/bits/char_traits.h(259,16):remark #34026: call to memcmp implemented as a call to optimized library version
+/usr/include/c++/4.4.7/bits/char_traits.h(259,16):remark #34026: call to memcmp implemented as a call to optimized library version
+/usr/include/c++/4.4.7/bits/char_traits.h(259,16):remark #34026: call to memcmp implemented as a call to optimized library version
+/usr/include/c++/4.4.7/bits/char_traits.h(259,16):remark #34026: call to memcmp implemented as a call to optimized library version
+/usr/include/c++/4.4.7/bits/char_traits.h(259,16):remark #34026: call to memcmp implemented as a call to optimized library version
+/usr/include/c++/4.4.7/bits/char_traits.h(259,16):remark #34026: call to memcmp implemented as a call to optimized library version
+/usr/include/c++/4.4.7/bits/char_traits.h(259,16):remark #34026: call to memcmp implemented as a call to optimized library version
+/usr/include/c++/4.4.7/bits/char_traits.h(259,16):remark #34026: call to memcmp implemented as a call to optimized library version
+/usr/include/c++/4.4.7/bits/char_traits.h(259,16):remark #34026: call to memcmp implemented as a call to optimized library version
+/usr/include/c++/4.4.7/bits/char_traits.h(259,16):remark #34026: call to memcmp implemented as a call to optimized library version
+/usr/include/c++/4.4.7/bits/char_traits.h(259,16):remark #34026: call to memcmp implemented as a call to optimized library version
+/usr/include/c++/4.4.7/bits/char_traits.h(259,16):remark #34026: call to memcmp implemented as a call to optimized library version
+/usr/include/c++/4.4.7/bits/char_traits.h(259,16):remark #34026: call to memcmp implemented as a call to optimized library version
+/usr/include/c++/4.4.7/bits/char_traits.h(259,16):remark #34026: call to memcmp implemented as a call to optimized library version
+===========================================================================
+
+Begin optimization report for: Parameter_ABC::~Parameter_ABC(Parameter_ABC *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (Parameter_ABC::~Parameter_ABC(Parameter_ABC *)) [39] Parameter.cpp(67,32)
+  -> INLINE: (67,32) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *)
+     {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+  -> INLINE: (67,32) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *)
+     {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+  -> INLINE: (69,6) ParameterMap::remove(ParameterMap *, std::string &)
+    -> INLINE: ../include/ParameterMap.h:(190,17) std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::erase(std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>> *, const std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type &)
+       {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+  -> INLINE: (70,1) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *)
+     {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+  -> INLINE: (70,1) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *)
+     {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at /usr/include/c++/4.4.7/bits/stl_tree.h(985,7) inlined into Parameter.cpp(69,6)
+   remark #15521: loop was not vectorized: loop control variable was not identified. Explicitly compute the iteration count before executing the loop or try using canonical loop form
+LOOP END
+
+LOOP BEGIN at /usr/include/c++/4.4.7/bits/stl_tree.h(1017,7) inlined into Parameter.cpp(69,6)
+   remark #15521: loop was not vectorized: loop control variable was not identified. Explicitly compute the iteration count before executing the loop or try using canonical loop form
+LOOP END
+
+LOOP BEGIN at /usr/include/c++/4.4.7/bits/stl_tree.h(968,7) inlined into Parameter.cpp(69,6)
+   remark #15521: loop was not vectorized: loop control variable was not identified. Explicitly compute the iteration count before executing the loop or try using canonical loop form
+LOOP END
+
+LOOP BEGIN at /usr/include/c++/4.4.7/bits/stl_tree.h(1387,2) inlined into Parameter.cpp(69,6)
+   remark #15521: loop was not vectorized: loop control variable was not identified. Explicitly compute the iteration count before executing the loop or try using canonical loop form
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at /usr/include/c++/4.4.7/bits/stl_tree.h(1052,7) inlined into Parameter.cpp(69,6)
+   remark #15341: loop was not vectorized: nonstandard loop is not a vectorization candidate
+LOOP END
+
+    Report from: Code generation optimizations [cg]
+
+/usr/include/c++/4.4.7/bits/char_traits.h(259,16):remark #34026: call to memcmp implemented as a call to optimized library version
+/usr/include/c++/4.4.7/bits/char_traits.h(259,16):remark #34026: call to memcmp implemented as a call to optimized library version
+/usr/include/c++/4.4.7/bits/char_traits.h(259,16):remark #34026: call to memcmp implemented as a call to optimized library version
+/usr/include/c++/4.4.7/bits/char_traits.h(259,16):remark #34026: call to memcmp implemented as a call to optimized library version
+===========================================================================
+
+Begin optimization report for: std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::_M_erase(std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type> *, std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::_Link_type)
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at /usr/include/c++/4.4.7/bits/stl_tree.h(968,7)
+   remark #15521: loop was not vectorized: loop control variable was not identified. Explicitly compute the iteration count before executing the loop or try using canonical loop form
+LOOP END
+===========================================================================
+
+Begin optimization report for: Parameter_ABC::~Parameter_ABC(Parameter_ABC *const)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (Parameter_ABC::~Parameter_ABC(Parameter_ABC *const)) [43] Parameter.cpp(67,16)
+  -> INLINE: (67,16) Parameter_ABC::~Parameter_ABC(Parameter_ABC *)
+    -> INLINE: (67,32) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *)
+       {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+    -> INLINE: (67,32) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *)
+       {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+    -> INLINE: (69,6) ParameterMap::remove(ParameterMap *, std::string &)
+      -> INLINE: ../include/ParameterMap.h:(190,17) std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::erase(std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>> *, const std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type &)
+         {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+    -> INLINE: (70,1) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *)
+       {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+    -> INLINE: (70,1) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *)
+       {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at /usr/include/c++/4.4.7/bits/stl_tree.h(985,7) inlined into Parameter.cpp(67,16)
+   remark #15521: loop was not vectorized: loop control variable was not identified. Explicitly compute the iteration count before executing the loop or try using canonical loop form
+LOOP END
+
+LOOP BEGIN at /usr/include/c++/4.4.7/bits/stl_tree.h(1017,7) inlined into Parameter.cpp(67,16)
+   remark #15521: loop was not vectorized: loop control variable was not identified. Explicitly compute the iteration count before executing the loop or try using canonical loop form
+LOOP END
+
+LOOP BEGIN at /usr/include/c++/4.4.7/bits/stl_tree.h(968,7) inlined into Parameter.cpp(67,16)
+   remark #15521: loop was not vectorized: loop control variable was not identified. Explicitly compute the iteration count before executing the loop or try using canonical loop form
+LOOP END
+
+LOOP BEGIN at /usr/include/c++/4.4.7/bits/stl_tree.h(1387,2) inlined into Parameter.cpp(67,16)
+   remark #15521: loop was not vectorized: loop control variable was not identified. Explicitly compute the iteration count before executing the loop or try using canonical loop form
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at /usr/include/c++/4.4.7/bits/stl_tree.h(1052,7) inlined into Parameter.cpp(67,16)
+   remark #15341: loop was not vectorized: nonstandard loop is not a vectorization candidate
+LOOP END
+
+    Report from: Code generation optimizations [cg]
+
+/usr/include/c++/4.4.7/bits/char_traits.h(259,16):remark #34026: call to memcmp implemented as a call to optimized library version
+/usr/include/c++/4.4.7/bits/char_traits.h(259,16):remark #34026: call to memcmp implemented as a call to optimized library version
+/usr/include/c++/4.4.7/bits/char_traits.h(259,16):remark #34026: call to memcmp implemented as a call to optimized library version
+/usr/include/c++/4.4.7/bits/char_traits.h(259,16):remark #34026: call to memcmp implemented as a call to optimized library version
+===========================================================================
+
+Begin optimization report for: Parameter_ABC::~Parameter_ABC(Parameter_ABC *const)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (Parameter_ABC::~Parameter_ABC(Parameter_ABC *const)) [44] Parameter.cpp(67,16)
+  -> INLINE: (67,16) Parameter_ABC::~Parameter_ABC(Parameter_ABC *)
+    -> INLINE: (67,32) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *)
+       {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+    -> INLINE: (67,32) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *)
+       {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+    -> INLINE: (69,6) ParameterMap::remove(ParameterMap *, std::string &)
+      -> INLINE: ../include/ParameterMap.h:(190,17) std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::erase(std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>> *, const std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type &)
+         {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+    -> INLINE: (70,1) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *)
+       {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+    -> INLINE: (70,1) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *)
+       {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at /usr/include/c++/4.4.7/bits/stl_tree.h(985,7) inlined into Parameter.cpp(67,16)
+   remark #15521: loop was not vectorized: loop control variable was not identified. Explicitly compute the iteration count before executing the loop or try using canonical loop form
+LOOP END
+
+LOOP BEGIN at /usr/include/c++/4.4.7/bits/stl_tree.h(1017,7) inlined into Parameter.cpp(67,16)
+   remark #15521: loop was not vectorized: loop control variable was not identified. Explicitly compute the iteration count before executing the loop or try using canonical loop form
+LOOP END
+
+LOOP BEGIN at /usr/include/c++/4.4.7/bits/stl_tree.h(968,7) inlined into Parameter.cpp(67,16)
+   remark #15521: loop was not vectorized: loop control variable was not identified. Explicitly compute the iteration count before executing the loop or try using canonical loop form
+LOOP END
+
+LOOP BEGIN at /usr/include/c++/4.4.7/bits/stl_tree.h(1387,2) inlined into Parameter.cpp(67,16)
+   remark #15521: loop was not vectorized: loop control variable was not identified. Explicitly compute the iteration count before executing the loop or try using canonical loop form
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at /usr/include/c++/4.4.7/bits/stl_tree.h(1052,7) inlined into Parameter.cpp(67,16)
+   remark #15341: loop was not vectorized: nonstandard loop is not a vectorization candidate
+LOOP END
+
+    Report from: Code generation optimizations [cg]
+
+/usr/include/c++/4.4.7/bits/char_traits.h(259,16):remark #34026: call to memcmp implemented as a call to optimized library version
+/usr/include/c++/4.4.7/bits/char_traits.h(259,16):remark #34026: call to memcmp implemented as a call to optimized library version
+/usr/include/c++/4.4.7/bits/char_traits.h(259,16):remark #34026: call to memcmp implemented as a call to optimized library version
+/usr/include/c++/4.4.7/bits/char_traits.h(259,16):remark #34026: call to memcmp implemented as a call to optimized library version
+===========================================================================
+
+Begin optimization report for: Parameter_ABC::getLabel(std::string *, const Parameter_ABC *) const
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (Parameter_ABC::getLabel(std::string *, const Parameter_ABC *) const) ../include/ParameterMap.h(233,27)
+
+===========================================================================
+
+Begin optimization report for: Parameter_ABC::getComment(std::string *, const Parameter_ABC *) const
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (Parameter_ABC::getComment(std::string *, const Parameter_ABC *) const) ../include/ParameterMap.h(234,29)
+
+===========================================================================
+
+Begin optimization report for: std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::~map(std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>> *)
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at /usr/include/c++/4.4.7/bits/stl_tree.h(968,7) inlined into /usr/include/c++/4.4.7/bits/stl_map.h(87,11)
+   remark #15521: loop was not vectorized: loop control variable was not identified. Explicitly compute the iteration count before executing the loop or try using canonical loop form
+LOOP END
+===========================================================================
+
+Begin optimization report for: __sti__$E()
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (__sti__$E()) [177] <compiler generated>
+  -> INLINE: /usr/include/c++/4.4.7/iostream:(72,25) __sti___ZN12ParameterMap8_commentE()
+    -> DELETED: Parameter.cpp:(13,22) std::allocator<char>::~allocator(std::allocator<char> *)
+    -> DELETED: Parameter.cpp:(13,31) std::allocator<char>::allocator(std::allocator<char> *)
+    -> DELETED: Parameter.cpp:(13,31) std::allocator<char>::~allocator(std::allocator<char> *)
+  -> INLINE: /usr/include/c++/4.4.7/iostream:(72,25) __sti___ZN12ParameterMap10_delimiterE()
+    -> DELETED: Parameter.cpp:(12,22) std::allocator<char>::~allocator(std::allocator<char> *)
+    -> DELETED: Parameter.cpp:(12,33) std::allocator<char>::allocator(std::allocator<char> *)
+    -> DELETED: Parameter.cpp:(12,33) std::allocator<char>::~allocator(std::allocator<char> *)
+  -> INLINE: /usr/include/c++/4.4.7/iostream:(72,25) __sti___ZN12ParameterMap11_contentMapE()
+    -> INLINE: Parameter.cpp:(11,43) std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::map(std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>> *)
+       {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+  -> INLINE: /usr/include/c++/4.4.7/iostream:(72,25) __sti__I()
+    -> INLINE: ../include/constant.h:(13,38) std::complex<double>::complex(std::complex<double> *, double, double)
+
+
+    Report from: Code generation optimizations [cg]
+
+/usr/include/c++/4.4.7/bits/stl_tree.h(432,4):remark #34000: call to memset implemented inline with stores with proven (alignment, offset): (64, 8)
+===========================================================================
+
+Begin optimization report for: __sti__I()
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (__sti__I()) <compiler generated>
+
+===========================================================================
+
+Begin optimization report for: __sti___ZN12ParameterMap11_contentMapE()
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (__sti___ZN12ParameterMap11_contentMapE()) <compiler generated>
+
+===========================================================================
+
+Begin optimization report for: __sti___ZN12ParameterMap10_delimiterE()
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (__sti___ZN12ParameterMap10_delimiterE()) <compiler generated>
+
+===========================================================================
+
+Begin optimization report for: __sti___ZN12ParameterMap8_commentE()
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (__sti___ZN12ParameterMap8_commentE()) <compiler generated>
+
+===========================================================================
+
+Begin optimization report for: ParameterMap::init(ParameterMap *, ConfigFileParser &)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (ParameterMap::init(ParameterMap *, ConfigFileParser &)) [187] Parameter.cpp(80,1)
+  -> INLINE: (81,19) ParameterMap::begin(const ParameterMap *) const
+    -> INLINE: ../include/ParameterMap.h:(178,32) std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::begin(std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>> *)
+       {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+    -> INLINE: ../include/ParameterMap.h:(178,32) std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type>::_Rb_tree_const_iterator(std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type> *, const std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type>::iterator &)
+  -> INLINE: (81,31) std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type>::operator!=(const std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type> *, const std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type>::_Self &) const
+  -> INLINE: (81,31) std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type>::operator!=(const std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type> *, const std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type>::_Self &) const
+  -> INLINE: (81,34) ParameterMap::end(const ParameterMap *) const
+    -> INLINE: ../include/ParameterMap.h:(179,32) std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::end(std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>> *)
+       {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+    -> INLINE: ../include/ParameterMap.h:(179,32) std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type>::_Rb_tree_const_iterator(std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type> *, const std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type>::iterator &)
+  -> INLINE: (81,34) ParameterMap::end(const ParameterMap *) const
+    -> INLINE: ../include/ParameterMap.h:(179,32) std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::end(std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>> *)
+       {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+    -> INLINE: ../include/ParameterMap.h:(179,32) std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type>::_Rb_tree_const_iterator(std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type> *, const std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type>::iterator &)
+  -> INLINE: (81,43) std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type>::operator++(std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type> *, int)
+     {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+  -> INLINE: (82,29) std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type>::operator->(const std::_Rb_tree_const_iterator<std::_Rb_tree<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_type, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type, std::_Select1st<std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::value_type>, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::key_compare, std::map<std::string, Parameter_ABC *, std::less<std::string>, std::allocator<std::pair<const std::string, Parameter_ABC *>>>::_Pair_alloc_type>::value_type> *) const
+  -> INDIRECT-: (83,12) 
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at Parameter.cpp(81,31)
+   remark #15521: loop was not vectorized: loop control variable was not identified. Explicitly compute the iteration count before executing the loop or try using canonical loop form
+LOOP END
+===========================================================================
